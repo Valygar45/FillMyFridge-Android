@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FillMyFridge</string>
+    <string name="home_hello">Bonjour et bienvenue sur FillMyFridge</string>
+    <string name="gen_menu_list">Générer une nouvelle liste de menus</string>
+    <string name="du">Du: </string>
+    <string name="au">Au: </string>
+    <string name="continuer">Continuer</string>
+    <string name="gen_lm_dates">Générer une liste de menus</string>
+    <string name="gen_lm_meal_number">Préciser le nombre de repas pour chaque jour</string>
+    <string name="preciser_nb_personnes">Veuillez préciser le nombre de personnes pour chaque repas</string>
+    <string name="preciser_theme">Veuillez préciser un ou plusieurs thèmes pour chaque repas</string>
+    <string name="gen_lm_ending_desc">Votre liste de menu est enregistrée.</string>
+    <string name="gen_lm_ending_voir_liste">Voir la liste de course associée</string>
+    <string name="gen_lm_ending_go_home">Retourner au menu principal</string>
+</resources>
