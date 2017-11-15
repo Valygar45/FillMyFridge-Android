@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GenerateListMenuDatesActivity" />
-        <activity android:name=".GenerateListMenuMealNumber" />
+        <activity android:name=".GenerateListMenuMealNumberActivity" />
         <activity android:name=".GenerateListMenuPersonPerMealActivity" />
         <activity android:name=".GenerateListMenuMealThemeActivity" />
         <activity android:name=".GenerateListMenuEnding" />

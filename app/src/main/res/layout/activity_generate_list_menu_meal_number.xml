@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="gen_lm_meal_number"/>
+            android:text="@string/gen_lm_meal_number"/>
 
         <ListView
             android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/continuer"
-            android:id="@+id/gen_menu_list_meal_number"/>
+            android:id="@+id/gen_menu_list_meal_number_continue"/>
     </LinearLayout>
 
 
