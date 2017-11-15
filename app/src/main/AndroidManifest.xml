@@ -21,7 +21,10 @@
         <activity android:name=".GenerateListMenuPersonPerMealActivity" />
         <activity android:name=".GenerateListMenuMealThemeActivity" />
         <activity android:name=".GenerateListMenuEnding" />
-        <activity android:name=".ListeDeCourseActivity"></activity>
+        <activity android:name=".ListeDeCourseActivity" />
+        <activity android:name=".ListMenuDetailsActivity" />
+        <activity android:name=".AllListMenuActivity" />
+        <activity android:name=".MealDetailActivity"></activity>
     </application>
 
 </manifest>
