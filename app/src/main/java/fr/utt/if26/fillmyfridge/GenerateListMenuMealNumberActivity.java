@@ -8,25 +8,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.joda.time.LocalDate;
+
 import java.util.Date;
+
+import fr.utt.if26.fillmyfridge.Objects.ListeMenus;
 
 public class GenerateListMenuMealNumberActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button continueButton;
-    private Date from;
-    private Date to;
+    private ListeMenus listeMenus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        from = new Date(getIntent().getLongExtra("from", 0));
-        to = new Date(getIntent().getLongExtra("to", 0));
 
-        int numberOfDays = daysBetween(from, to) + 1;
-        Log.e("number of days:", numberOfDays + "");
+        listeMenus = (ListeMenus) intent.getSerializableExtra("listeMenus");
 
+        Log.e("serializable", listeMenus.toString());
+
+        for (LocalDate date = new LocalDate(listeMenus.getDateDebut()); date.isBefore(new LocalDate(listeMenus.getDateFin())); date = date.plusDays(1))
+        {
+
+        }
 
 
         setContentView(R.layout.activity_generate_list_menu_meal_number);
@@ -47,7 +53,4 @@ public class GenerateListMenuMealNumberActivity extends AppCompatActivity implem
         }
     }
 
-    public int daysBetween(Date d1, Date d2){
-        return (int)( (d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
-    }
 }

@@ -6,7 +6,10 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import fr.utt.if26.fillmyfridge.Objects.ListeMenus;
 import fr.utt.if26.fillmyfridge.Objects.Menu;
@@ -49,14 +52,30 @@ public class ListeMenusDAO {
     public ListeMenus getListeMenus(int id){
         Cursor cursor = database.rawQuery("SELECT * from ListeMenus WHERE id = "+id+";", null);
         cursor.moveToFirst();
-        int debut = cursor.getInt(1);
-        int fin = cursor.getInt(2);
-        ListeMenus listeMenus = new ListeMenus(new Date(debut), new Date(fin));
-        listeMenus.setId(id);
+        ListeMenus listeMenus = cursorToListeMenus(cursor);
 
         MenuDAO menuDAO = new MenuDAO(database, id);
         listeMenus.setMenus(menuDAO.getMenus());
 
+        return listeMenus;
+    }
+
+    public ArrayList<ListeMenus> getAllListeMenus(){
+        ArrayList<ListeMenus> arrayListeMenus = new ArrayList<ListeMenus>();
+        Cursor cursor = database.rawQuery("SELECT * from ListeMenus;", null);
+        while(cursor.moveToNext()) {
+            ListeMenus listeMenus = cursorToListeMenus(cursor);
+            arrayListeMenus.add(listeMenus);
+        }
+        return arrayListeMenus;
+    }
+
+    public ListeMenus cursorToListeMenus(Cursor cursor){
+        int id = cursor.getInt(0);
+        int debut = cursor.getInt(1);
+        int fin = cursor.getInt(2);
+        ListeMenus listeMenus = new ListeMenus(new Date(debut), new Date(fin));
+        listeMenus.setId(id);
         return listeMenus;
     }
 }

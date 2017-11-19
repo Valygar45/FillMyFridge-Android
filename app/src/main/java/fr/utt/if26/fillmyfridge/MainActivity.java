@@ -33,6 +33,7 @@ import fr.utt.if26.fillmyfridge.Objects.Tag;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button generateButton;
+    private Button listListeMenusButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         generateButton = (Button) findViewById(R.id.home_gen_menu_list);
         generateButton.setOnClickListener(this);
+
+        listListeMenusButton = (Button) findViewById(R.id.home_menu_list);
+        listListeMenusButton.setOnClickListener(this);
 
         SQLiteDatabase db = new MySQLiteHelper(this).getWritableDatabase();
         Log.v("lol","lol");
@@ -130,6 +134,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.home_gen_menu_list:
                 Intent datesIntent = new Intent(MainActivity.this, GenerateListMenuDatesActivity.class);
                 MainActivity.this.startActivity(datesIntent);
+                break;
+            case R.id.home_menu_list:
+                Intent listListeMenusIntent = new Intent(MainActivity.this, AllListMenuActivity.class);
+                MainActivity.this.startActivity(listListeMenusIntent);
                 break;
         }
     }

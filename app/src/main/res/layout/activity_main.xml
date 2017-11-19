@@ -24,6 +24,12 @@
             android:layout_width="wrap_content"
             android:text="@string/gen_menu_list"
             android:id="@+id/home_gen_menu_list"/>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Voir mes listes de menu"
+            android:id="@+id/home_menu_list"/>
     </LinearLayout>
 
 

@@ -1,5 +1,6 @@
 package fr.utt.if26.fillmyfridge.Objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,7 +8,7 @@ import java.util.Date;
  * Created by alex2 on 15/11/2017.
  */
 
-public class ListeMenus {
+public class ListeMenus implements Serializable{
     private int id;
     private Date dateDebut;
     private Date dateFin;
