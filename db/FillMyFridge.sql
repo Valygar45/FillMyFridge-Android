@@ -1,30 +1,38 @@
 BEGIN TRANSACTION;
+DROP TABLE IF EXISTS `Utilisateur_ListeMenus`;
 CREATE TABLE IF NOT EXISTS `Utilisateur_ListeMenus` (
 	`Utilisateur`	INTEGER,
 	`ListeMenus`	INTEGER,
 	FOREIGN KEY(`Utilisateur`) REFERENCES `Utilisateur`,
-	FOREIGN KEY(`ListeMenus`) REFERENCES `ListeMenus`,
-	PRIMARY KEY(`Utilisateur`,`ListeMenus`)
+	PRIMARY KEY(`Utilisateur`,`ListeMenus`),
+	FOREIGN KEY(`ListeMenus`) REFERENCES `ListeMenus`
 );
+DROP TABLE IF EXISTS `Utilisateur`;
 CREATE TABLE IF NOT EXISTS `Utilisateur` (
 	`ID`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	`Nom`	TEXT
 );
+DROP TABLE IF EXISTS `Tag`;
 CREATE TABLE IF NOT EXISTS `Tag` (
 	`ID`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	`Label`	TEXT NOT NULL
 );
+DROP TABLE IF EXISTS `Repas_Plat`;
 CREATE TABLE IF NOT EXISTS `Repas_Plat` (
 	`repas`	INTEGER,
 	`plat`	INTEGER,
-	FOREIGN KEY(`repas`) REFERENCES `Repas`,
+	FOREIGN KEY(`plat`) REFERENCES `Plat`,
 	PRIMARY KEY(`plat`,`repas`),
-	FOREIGN KEY(`plat`) REFERENCES `Plat`
+	FOREIGN KEY(`repas`) REFERENCES `Repas`
 );
+DROP TABLE IF EXISTS `Repas`;
 CREATE TABLE IF NOT EXISTS `Repas` (
 	`ID`	INTEGER PRIMARY KEY AUTOINCREMENT,
-	`Nom`	TEXT
+	`nom`	TEXT,
+	`personnes`	INTEGER NOT NULL,
+	`numero`	INTEGER NOT NULL
 );
+DROP TABLE IF EXISTS `Plat_Tag`;
 CREATE TABLE IF NOT EXISTS `Plat_Tag` (
 	`plat`	INTEGER,
 	`tag`	INTEGER,
@@ -32,47 +40,51 @@ CREATE TABLE IF NOT EXISTS `Plat_Tag` (
 	FOREIGN KEY(`plat`) REFERENCES `Plat`,
 	PRIMARY KEY(`tag`,`plat`)
 );
+DROP TABLE IF EXISTS `Plat_Ingredient`;
 CREATE TABLE IF NOT EXISTS `Plat_Ingredient` (
 	`plat`	INTEGER,
 	`ingredient`	INTEGER,
 	`grammes`	INTEGER,
-	FOREIGN KEY(`ingredient`) REFERENCES `Ingredient`,
 	PRIMARY KEY(`plat`,`ingredient`),
+	FOREIGN KEY(`ingredient`) REFERENCES `Ingredient`,
 	FOREIGN KEY(`plat`) REFERENCES `Plat`
 );
+DROP TABLE IF EXISTS `Plat`;
 CREATE TABLE IF NOT EXISTS `Plat` (
 	`ID`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	`intitule`	TEXT NOT NULL
 );
+DROP TABLE IF EXISTS `Menu_Repas`;
 CREATE TABLE IF NOT EXISTS `Menu_Repas` (
 	`menu`	INTEGER,
 	`repas`	INTEGER,
-	`numero`	INTEGER NOT NULL,
-	`personnes`	INTEGER NOT NULL,
-	FOREIGN KEY(`menu`) REFERENCES `Menu`,
+	FOREIGN KEY(`repas`) REFERENCES `Repas`,
 	PRIMARY KEY(`repas`,`menu`),
-	FOREIGN KEY(`repas`) REFERENCES `Repas`
+	FOREIGN KEY(`menu`) REFERENCES `Menu`
 );
+DROP TABLE IF EXISTS `Menu`;
 CREATE TABLE IF NOT EXISTS `Menu` (
 	`ID`	INTEGER PRIMARY KEY AUTOINCREMENT,
-	`Nom`	TEXT NOT NULL,
-	`Date`	INTEGER NOT NULL
+	`nom`	TEXT NOT NULL,
+	`date`	INTEGER NOT NULL
 );
+DROP TABLE IF EXISTS `ListeMenus_Menu`;
 CREATE TABLE IF NOT EXISTS `ListeMenus_Menu` (
-	`ListeMenus`	INTEGER,
-	`Menu`	INTEGER,
-	FOREIGN KEY(`ListeMenus`) REFERENCES `ListeMenus`,
-	FOREIGN KEY(`Menu`) REFERENCES `Menu`,
-	PRIMARY KEY(`ListeMenus`,`Menu`)
+	`listemenus`	INTEGER,
+	`menu`	INTEGER,
+	PRIMARY KEY(`listemenus`,`menu`),
+	FOREIGN KEY(`listemenus`) REFERENCES `ListeMenus`,
+	FOREIGN KEY(`menu`) REFERENCES `Menu`
 );
+DROP TABLE IF EXISTS `ListeMenus`;
 CREATE TABLE IF NOT EXISTS `ListeMenus` (
 	`ID`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	`date_debut`	INTEGER NOT NULL,
 	`date_fin`	INTEGER NOT NULL
 );
+DROP TABLE IF EXISTS `Ingredient`;
 CREATE TABLE IF NOT EXISTS `Ingredient` (
 	`Nom`	TEXT NOT NULL,
 	`ID`	INTEGER PRIMARY KEY AUTOINCREMENT
 );
-INSERT INTO `Ingredient` VALUES ('Test',1);
 COMMIT;

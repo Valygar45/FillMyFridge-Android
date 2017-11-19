@@ -21,6 +21,19 @@ public class Repas {
         this.numero = numero;
     }
 
+    public Repas(String nom, ArrayList<Plat> plats, int numberofPersonnes, int numero) {
+        this.nom = nom;
+        this.plats = plats;
+        this.numberofPersonnes = numberofPersonnes;
+        this.numero = numero;
+    }
+
+    public Repas(String nom, int numberofPersonnes, int numero) {
+        this.nom = nom;
+        this.numberofPersonnes = numberofPersonnes;
+        this.numero = numero;
+    }
+
     public int getId() {
         return id;
     }
@@ -59,5 +72,16 @@ public class Repas {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public String toString() {
+        return "Repas{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", plats=" + plats +
+                ", numberofPersonnes=" + numberofPersonnes +
+                ", numero=" + numero +
+                '}';
     }
 }

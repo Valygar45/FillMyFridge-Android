@@ -38,4 +38,13 @@ public class Ingredient {
     public void setGrammes(int grammes) {
         this.grammes = grammes;
     }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", grammes=" + grammes +
+                '}';
+    }
 }

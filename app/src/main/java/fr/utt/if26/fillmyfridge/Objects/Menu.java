@@ -20,6 +20,18 @@ public class Menu {
         this.repas = repas;
     }
 
+    public Menu(String nom, Date date, ArrayList<Repas> repas) {
+        this.nom = nom;
+        this.date = date;
+        this.repas = repas;
+    }
+
+    public Menu(String nom, Date date) {
+        this.nom = nom;
+        this.date = date;
+        this.repas = repas;
+    }
+
     public int getId() {
         return id;
     }
@@ -50,5 +62,15 @@ public class Menu {
 
     public void setRepas(ArrayList<Repas> repas) {
         this.repas = repas;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", date=" + date +
+                ", repas=" + repas +
+                '}';
     }
 }
