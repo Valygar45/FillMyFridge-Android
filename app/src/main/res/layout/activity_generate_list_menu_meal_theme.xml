@@ -22,8 +22,10 @@
             android:text="@string/preciser_theme"/>
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/LV_gen_meal_theme">
             <!-- LV qui sera feed avec les repas de la journée considérée et une combobox des thèmes à choisir-->
+
 
         </ListView>
         <Button

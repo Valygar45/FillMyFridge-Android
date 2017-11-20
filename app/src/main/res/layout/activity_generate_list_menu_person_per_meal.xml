@@ -19,10 +19,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/preciser_nb_personnes"/>
+            android:text="@string/preciser_nb_personnes"
+            android:id="@+id/TV_meal_person"/>
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/LV_gen_person_number">
             <!-- LV qui sera feed avec les repas de la journée considérée et un select sur le nombre de personnes consommant chaque repas -->
 
         </ListView>

@@ -61,13 +61,15 @@ public class GenerateListMenuMealNumberActivity extends AppCompatActivity implem
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.gen_menu_list_meal_number_continue:
-                ArrayList<Integer> mealsNumber = new ArrayList<>();
                 Intent PPMIntent = new Intent(GenerateListMenuMealNumberActivity.this,
                         GenerateListMenuPersonPerMealActivity.class);
+
+                ArrayList<Menu> menus = new ArrayList<Menu>();
                 for(int i = 0; i < lvListeMenu.getCount(); i++){
-                    mealsNumber.add((lvListeMenu.get()).getProgress());
+                    menus.add((Menu) lvListeMenu.getAdapter().getItem(i));
                 }
-                PPMIntent.putIntegerArrayListExtra("mealsNumber", mealsNumber);
+                listeMenus.setMenus(menus);
+                PPMIntent.putExtra("listeMenus", listeMenus);
                 GenerateListMenuMealNumberActivity.this.startActivity(PPMIntent);
                 break;
         }

@@ -4,10 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -19,12 +16,11 @@ import fr.utt.if26.fillmyfridge.Objects.Repas;
 import fr.utt.if26.fillmyfridge.R;
 
 /**
- * Created by valygar on 20/11/2017.
+ * Created by alex2 on 20/11/2017.
  */
 
-public class MealNumberAdapter extends ArrayAdapter<Menu>{
-
-    private ListeMenus listeMenus;
+public class PersonNumberAdapter extends ArrayAdapter<Repas> {
+    private Menu menu;
     private Context mContext;
 
     // View lookup cache
@@ -33,9 +29,9 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
         SeekBar SBDate;
     }
 
-    public MealNumberAdapter(ListeMenus data, Context context) {
-        super(context, R.layout.row_meal_number, data.getMenus());
-        this.listeMenus = data;
+    public PersonNumberAdapter(Menu data, Context context) {
+        super(context, R.layout.row_meal_number, data.getRepas());
+        this.menu = data;
         this.mContext=context;
 
     }
@@ -45,18 +41,16 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-       final Menu menu = listeMenus.getMenus().get(position);
-       ArrayList<Repas> repasInit = new ArrayList<Repas>();
-       repasInit.add(new Repas("Repas",0,1));
-       menu.setRepas(repasInit);
+        final Repas repas = menu.getRepas().get(position);
+        repas.setNumberofPersonnes(1);
         // Check if an existing view is being reused, otherwise inflate the view
-        ViewHolder viewHolder; // view lookup cache stored in tag
+        PersonNumberAdapter.ViewHolder viewHolder; // view lookup cache stored in tag
 
         final View result;
 
         if (convertView == null) {
 
-            viewHolder = new ViewHolder();
+            viewHolder = new PersonNumberAdapter.ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row_meal_number, parent, false);
             viewHolder.dateLabel = (TextView) convertView.findViewById(R.id.TV_meal_number_row_label);
@@ -75,12 +69,8 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
 
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
-                    ArrayList<Repas> repas = new ArrayList<Repas>();
-                    int nbRepas = seekBar.getProgress()+1;
-                    for(int i=0; i < nbRepas; i++){
-                        repas.add(new Repas("Repas",0,i+1));
-                    }
-                    menu.setRepas(repas);
+                    int nbPerson = seekBar.getProgress()+1;
+                    repas.setNumberofPersonnes(nbPerson);
                 }
             });
 
@@ -88,11 +78,11 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
 
             convertView.setTag(viewHolder);
         } else {
-            viewHolder = (ViewHolder) convertView.getTag();
+            viewHolder = (PersonNumberAdapter.ViewHolder) convertView.getTag();
             result=convertView;
         }
 
-        viewHolder.dateLabel.setText("Le " + menu.getDateFourDigits() + ": ");
+        viewHolder.dateLabel.setText("Repas n°"+repas.getNumero());
         // Return the completed view to render on screen
         return convertView;
     }

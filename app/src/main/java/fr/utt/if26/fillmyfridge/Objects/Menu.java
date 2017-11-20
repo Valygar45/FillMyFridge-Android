@@ -1,5 +1,6 @@
 package fr.utt.if26.fillmyfridge.Objects;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Date;
  * Created by alex2 on 15/11/2017.
  */
 
-public class Menu {
+public class Menu implements Serializable {
     private int id;
     private String nom;
     private Date date;
