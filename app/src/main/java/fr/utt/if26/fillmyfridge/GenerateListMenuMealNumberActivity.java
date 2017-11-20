@@ -9,6 +9,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import org.joda.time.LocalDate;
@@ -60,9 +61,13 @@ public class GenerateListMenuMealNumberActivity extends AppCompatActivity implem
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.gen_menu_list_meal_number_continue:
-
+                ArrayList<Integer> mealsNumber = new ArrayList<>();
                 Intent PPMIntent = new Intent(GenerateListMenuMealNumberActivity.this,
                         GenerateListMenuPersonPerMealActivity.class);
+                for(int i = 0; i < lvListeMenu.getCount(); i++){
+                    mealsNumber.add((lvListeMenu.get()).getProgress());
+                }
+                PPMIntent.putIntegerArrayListExtra("mealsNumber", mealsNumber);
                 GenerateListMenuMealNumberActivity.this.startActivity(PPMIntent);
                 break;
         }
