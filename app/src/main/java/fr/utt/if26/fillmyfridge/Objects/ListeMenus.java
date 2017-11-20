@@ -73,4 +73,8 @@ public class ListeMenus implements Serializable{
                 ", menus=" + menus +
                 '}';
     }
+
+    public int getNumberOfMeals(){
+        return (int)(((this.getDateDebut().getTime() - this.getDateFin().getTime()) / (1000 * 60 * 60 * 24)) + 1);
+    }
 }

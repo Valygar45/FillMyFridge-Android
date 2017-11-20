@@ -73,10 +73,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ListeMenus listeMenus = new ListeMenus(new Date(), new Date(), arrayMenu);
 
-       /* ListeMenusDAO listeMenusDAO = new ListeMenusDAO(this);
+        ListeMenusDAO listeMenusDAO = new ListeMenusDAO(this);
         listeMenusDAO.open();
         listeMenusDAO.createListeMenus(listeMenus);
-        listeMenusDAO.close();*/
+        listeMenusDAO.close();
 
 
         ArrayList<Plat> platsFound = PlatDAO.findPlatByTags(arrayTag, this);
@@ -113,12 +113,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             menuTest.setRepas(arrayRepasTest);
         }
 
-        ListeMenusDAO listeMenusDAO = new ListeMenusDAO(this);
-        listeMenusDAO.open();
-        listeMenusDAO.createListeMenus(listeMenusTest);
+        ListeMenusDAO listeMenusDAO2 = new ListeMenusDAO(this);
+        listeMenusDAO2.open();
+        listeMenusDAO2.createListeMenus(listeMenusTest);
 
-        ListeMenus listeRecup = listeMenusDAO.getListeMenus(2);
-        Log.v("listemenus",listeRecup.toString());
+        //ListeMenus listeRecup = listeMenusDAO.getListeMenus(2);
+        //Log.v("listemenus",listeRecup.toString());
         listeMenusDAO.close();
 
         

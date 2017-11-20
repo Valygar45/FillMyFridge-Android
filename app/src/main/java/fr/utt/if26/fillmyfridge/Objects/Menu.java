@@ -1,5 +1,6 @@
 package fr.utt.if26.fillmyfridge.Objects;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -72,5 +73,10 @@ public class Menu {
                 ", date=" + date +
                 ", repas=" + repas +
                 '}';
+    }
+
+    public String getDateFourDigits(){
+        String fourDigitsDate = new SimpleDateFormat("dd/MM").format(this.getDate());
+        return fourDigitsDate;
     }
 }
