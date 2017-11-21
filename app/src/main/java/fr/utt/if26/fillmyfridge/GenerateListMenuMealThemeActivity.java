@@ -9,10 +9,15 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import fr.utt.if26.fillmyfridge.Adapters.PersonNumberAdapter;
 import fr.utt.if26.fillmyfridge.Adapters.ThemeAdapter;
+import fr.utt.if26.fillmyfridge.Dao.PlatDAO;
 import fr.utt.if26.fillmyfridge.Objects.ListeMenus;
 import fr.utt.if26.fillmyfridge.Objects.Menu;
+import fr.utt.if26.fillmyfridge.Objects.Plat;
 import fr.utt.if26.fillmyfridge.Objects.Repas;
 
 public class GenerateListMenuMealThemeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -68,6 +73,16 @@ public class GenerateListMenuMealThemeActivity extends AppCompatActivity impleme
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.gen_menu_list_meal_theme_continue:
+
+                for(Repas repas : menuToSave.getRepas()){
+
+                        ArrayList<Plat> platsFound = PlatDAO.findPlatByTags(repas.getPlats().get(0).getTags(),this);
+                        Random randomizer = new Random();
+                        ArrayList<Plat> selectedPlat = new ArrayList<Plat>();
+                        selectedPlat.add(platsFound.get(randomizer.nextInt(platsFound.size())));
+                        repas.setPlats(selectedPlat);
+                }
+                Log.e("ThemeMenu", menuToSave.toString());
                 Intent datesIntent = new Intent(GenerateListMenuMealThemeActivity.this, GenerateListMenuMealThemeActivity.class);
                 datesIntent.putExtra("listeMenus", listeMenus);
                 GenerateListMenuMealThemeActivity.this.startActivity(datesIntent);

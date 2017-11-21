@@ -12,4 +12,24 @@
     <string name="gen_lm_ending_desc">Votre liste de menu est enregistrée.</string>
     <string name="gen_lm_ending_voir_liste">Voir la liste de course associée</string>
     <string name="gen_lm_ending_go_home">Retourner au menu principal</string>
+    <string-array name="theme_spinner">
+        <item>Gourmand</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <integer-array name="theme_spinner_id">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </integer-array>
 </resources>
