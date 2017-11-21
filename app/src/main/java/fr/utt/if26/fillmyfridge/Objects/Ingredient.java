@@ -47,4 +47,13 @@ public class Ingredient {
                 ", grammes=" + grammes +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object i){
+        if((this.getGrammes() == ((Ingredient)i).getGrammes()) && (this.getNom() == ((Ingredient)i).getNom())){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

@@ -8,7 +8,8 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/LV_liste_de_course">
         <!-- LV feed avec chaque élément de la liste de course sous le format nbFois - nom de l'ingrédient -->
     </ListView>
 
