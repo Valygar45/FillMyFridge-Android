@@ -62,10 +62,10 @@ public class GenerateListMenuMealThemeActivity extends AppCompatActivity impleme
         else{
             ListeMenusDAO listeMenusDAO = new ListeMenusDAO(this);
             listeMenusDAO.open();
-            listeMenusDAO.createListeMenus(listeMenus);
+            ListeMenus listeMenusSaved = listeMenusDAO.createListeMenus(listeMenus);
             listeMenusDAO.close();
             Intent themeIntent = new Intent(GenerateListMenuMealThemeActivity.this, GenerateListMenuEnding.class);
-            themeIntent.putExtra("listeMenus", listeMenus);
+            themeIntent.putExtra("listeMenus", listeMenusSaved);
             GenerateListMenuMealThemeActivity.this.startActivity(themeIntent);
         }
 

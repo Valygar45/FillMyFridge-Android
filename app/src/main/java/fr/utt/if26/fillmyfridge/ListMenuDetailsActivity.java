@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,7 +31,7 @@ public class ListMenuDetailsActivity extends AppCompatActivity {
         ListeMenusDAO listeMenusDAO = new ListeMenusDAO(this);
         listeMenusDAO.open();
 
-        ListeMenus listeMenusBDD = listeMenusDAO.getListeMenus(listeMenus.getId());
+        final ListeMenus listeMenusBDD = listeMenusDAO.getListeMenus(listeMenus.getId());
         Log.e("numberRepas", listeMenusBDD.toString());
 
 
@@ -37,6 +39,16 @@ public class ListMenuDetailsActivity extends AppCompatActivity {
         txFrom.setText(new SimpleDateFormat("dd/MM").format(listeMenus.getDateDebut()));
         TextView txTo = (TextView) findViewById(R.id.TV_lm_details_to);
         txTo.setText(new SimpleDateFormat("dd/MM").format(listeMenus.getDateFin()));
+
+        Button buttonListeCourse = (Button) findViewById(R.id.Button_details_menu_liste_course);
+
+        buttonListeCourse.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent listListeMenusIntent = new Intent(ListMenuDetailsActivity.this, ListeDeCourseActivity.class);
+                listListeMenusIntent.putExtra("listeMenus", listeMenusBDD);
+                ListMenuDetailsActivity.this.startActivity(listListeMenusIntent);
+            }
+        });
 
         lvListeMenu = (ListView) findViewById(R.id.LV_listemenus_details);
 

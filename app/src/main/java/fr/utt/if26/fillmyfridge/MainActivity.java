@@ -136,10 +136,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 MainActivity.this.startActivity(datesIntent);
                 break;
             case R.id.home_menu_list:
-                //Intent listeMenusIntent = new Intent(MainActivity.this, AllListMenuActivity.class);
-                //MainActivity.this.startActivity(listMenusIntent);
-                Intent listListeMenusIntent = new Intent(MainActivity.this, ListeDeCourseActivity.class);
-                MainActivity.this.startActivity(listListeMenusIntent);
+                Intent listeMenusIntent = new Intent(MainActivity.this, AllListMenuActivity.class);
+                MainActivity.this.startActivity(listeMenusIntent);
+                //Intent ListeMenusIntent = new Intent(MainActivity.this, ListeDeCourseActivity.class);
+                //MainActivity.this.startActivity(listListeMenusIntent);
                 break;
         }
     }

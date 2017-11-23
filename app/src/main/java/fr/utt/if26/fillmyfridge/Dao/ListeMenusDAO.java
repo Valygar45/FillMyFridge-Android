@@ -36,7 +36,7 @@ public class ListeMenusDAO {
         dbHelper.close();
     }
 
-    public void createListeMenus(ListeMenus listeMenus) {
+    public ListeMenus createListeMenus(ListeMenus listeMenus) {
         ContentValues values = new ContentValues();
         values.put("date_debut", listeMenus.getDateDebut().getTime() );
         values.put("date_fin", listeMenus.getDateFin().getTime() );
@@ -48,6 +48,7 @@ public class ListeMenusDAO {
         for(Menu menu : listeMenus.getMenus()){
             menuDao.createMenu(menu);
         }
+        return listeMenus;
 
     }
     public ListeMenus getListeMenus(int id){

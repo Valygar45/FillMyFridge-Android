@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import fr.utt.if26.fillmyfridge.Objects.ListeMenus;
+
 public class GenerateListMenuEnding extends AppCompatActivity implements View.OnClickListener {
 
     private Button goHomeButton;
     private Button seeListButton;
+    private ListeMenus listeMenus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,10 @@ public class GenerateListMenuEnding extends AppCompatActivity implements View.On
 
         seeListButton = (Button) findViewById(R.id.gen_lm_ending_liste_course);
         seeListButton.setOnClickListener(this);
+
+        Intent intent = getIntent();
+
+        listeMenus = (ListeMenus) intent.getSerializableExtra("listeMenus");
     }
 
     @Override
@@ -32,6 +39,7 @@ public class GenerateListMenuEnding extends AppCompatActivity implements View.On
                 break;
             case R.id.gen_lm_ending_liste_course:
                 Intent seeListIntent = new Intent(GenerateListMenuEnding.this, ListeDeCourseActivity.class);
+                seeListIntent.putExtra("listeMenus", listeMenus);
                 GenerateListMenuEnding.this.startActivity(seeListIntent);
                 break;
         }

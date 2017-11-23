@@ -1,5 +1,6 @@
 package fr.utt.if26.fillmyfridge;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,14 +23,18 @@ import fr.utt.if26.fillmyfridge.Objects.Tag;
 public class ListeDeCourseActivity extends AppCompatActivity {
 
     private ListView lvIngredients;
+    private ListeMenus listeMenus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_de_course);
 
+        Intent intent = getIntent();
+        listeMenus = (ListeMenus) intent.getSerializableExtra("listeMenus");
+
         lvIngredients = (ListView) findViewById(R.id.LV_liste_de_course);
-        Ingredient ingredient = new Ingredient(1, "pate", 200);
+        /*Ingredient ingredient = new Ingredient(1, "pate", 200);
         Ingredient ingredient2 = new Ingredient(1, "tomate", 100);
         Ingredient ingredient3 = new Ingredient(1, "jambon", 20);
         Ingredient ingredient4 = new Ingredient(1, "poulet", 2);
@@ -67,7 +72,7 @@ public class ListeDeCourseActivity extends AppCompatActivity {
         //arrayMenu.add(menu2);
 
         ListeMenus listeMenus = new ListeMenus(new Date(), new Date(), arrayMenu);
-        Log.e("listeMenusTest", listeMenus.toString());
+        Log.e("listeMenusTest", listeMenus.toString());*/
         ListeDeCourseAdapter ldcAdapter= new ListeDeCourseAdapter(listeMenus,getApplicationContext());
 
         lvIngredients.setAdapter(ldcAdapter);
