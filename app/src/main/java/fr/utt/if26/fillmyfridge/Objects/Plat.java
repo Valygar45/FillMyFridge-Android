@@ -1,12 +1,13 @@
 package fr.utt.if26.fillmyfridge.Objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by alex2 on 15/11/2017.
  */
 
-public class Plat {
+public class Plat implements Serializable {
     private int id;
     private String intitule;
     private ArrayList<Ingredient> ingredients;

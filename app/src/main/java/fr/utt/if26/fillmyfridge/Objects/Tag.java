@@ -1,10 +1,12 @@
 package fr.utt.if26.fillmyfridge.Objects;
 
+import java.io.Serializable;
+
 /**
  * Created by alex2 on 15/11/2017.
  */
 
-public class Tag {
+public class Tag implements Serializable {
     private int id;
     private String label;
 

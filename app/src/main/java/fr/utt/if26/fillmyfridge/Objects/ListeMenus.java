@@ -1,8 +1,11 @@
 package fr.utt.if26.fillmyfridge.Objects;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import fr.utt.if26.fillmyfridge.Dao.ListeMenusDAO;
 
 /**
  * Created by alex2 on 15/11/2017.
@@ -66,15 +69,22 @@ public class ListeMenus implements Serializable{
 
     @Override
     public String toString() {
-        return "ListeMenus{" +
+        /*return "ListeMenus{" +
                 "id=" + id +
                 ", dateDebut=" + dateDebut +
                 ", dateFin=" + dateFin +
                 ", menus=" + menus +
-                '}';
+                '}';*/
+        return "Menu"+this.getDateFourDigits();
     }
 
     public int getNumberOfMeals(){
         return (int)(((this.getDateDebut().getTime() - this.getDateFin().getTime()) / (1000 * 60 * 60 * 24)) + 1);
+    }
+
+    public String getDateFourDigits(){
+        String fourDigitsDateDebut = new SimpleDateFormat("dd/MM/YY").format(this.getDateDebut());
+        String fourDigitsDateFin = new SimpleDateFormat("dd/MM/YY").format(this.getDateFin());
+        return " du " + fourDigitsDateDebut+" au "+fourDigitsDateFin;
     }
 }

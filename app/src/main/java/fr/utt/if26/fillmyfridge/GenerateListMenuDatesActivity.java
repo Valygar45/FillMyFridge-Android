@@ -3,12 +3,14 @@ package fr.utt.if26.fillmyfridge;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 
 import org.joda.time.LocalDate;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import fr.utt.if26.fillmyfridge.Objects.ListeMenus;
@@ -29,13 +31,23 @@ public class GenerateListMenuDatesActivity extends AppCompatActivity implements 
         continueButton = (Button) findViewById(R.id.gen_menu_list_dates_continue);
         continueButton.setOnClickListener(this);
 
+
+
         dateDebutView = (CalendarView) findViewById(R.id.gen_menu_list_from);
         dateFinView = (CalendarView) findViewById(R.id.gen_menu_list_to);
+        dateDebut = new Date(dateDebutView.getDate());
+        dateFin = new Date(dateFinView.getDate());
+
+        Log.e("dateTest", (new Date(dateDebutView.getDate())).toString());
+
         dateDebutView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
-
-                dateDebut = (new LocalDate(i, i1+1, i2)).toDate();
+                Calendar c = Calendar.getInstance();
+                c.set(i, i1, i2, 0, 0);
+                dateDebut = c.getTime();
+                //dateDebut = (new LocalDate(i, i1+1, i2)).toDate();
+                Log.e("dateTest", dateDebut.getTime()+"");
             }
         });
 

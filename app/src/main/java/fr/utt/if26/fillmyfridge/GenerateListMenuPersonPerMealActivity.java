@@ -50,7 +50,7 @@ public class GenerateListMenuPersonPerMealActivity extends AppCompatActivity imp
             menuToSave = listeMenus.getMenus().get(menuId);
 
             TextView textView = (TextView) findViewById(R.id.TV_meal_person);
-            textView.setText("Precisez le nombre de repas pour le : "+menuToSave.getDateFourDigits());
+            textView.setText("Precisez le nombre de personnes pour le : "+menuToSave.getDateFourDigits());
 
             PersonNumberAdapter personNumberAdapter = new PersonNumberAdapter(menuToSave, getApplicationContext());
             lvListeMenu.setAdapter(personNumberAdapter);

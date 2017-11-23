@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -72,8 +73,9 @@ public class ListeMenusDAO {
 
     public ListeMenus cursorToListeMenus(Cursor cursor){
         int id = cursor.getInt(0);
-        int debut = cursor.getInt(1);
-        int fin = cursor.getInt(2);
+        long debut = cursor.getLong(1);
+        long fin = cursor.getLong(2);
+        Log.e("dateCursor", ""+debut);
         ListeMenus listeMenus = new ListeMenus(new Date(debut), new Date(fin));
         listeMenus.setId(id);
         return listeMenus;

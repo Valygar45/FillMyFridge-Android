@@ -1,5 +1,6 @@
 package fr.utt.if26.fillmyfridge;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fr.utt.if26.fillmyfridge.Dao.ListeMenusDAO;
 import fr.utt.if26.fillmyfridge.Objects.ListeMenus;
@@ -34,9 +36,12 @@ public class AllListMenuActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(getApplicationContext(),
-                        listView.getAdapter().getItem(position).toString(), Toast.LENGTH_LONG)
-                        .show();
+
+                ListeMenus listeMenus = (ListeMenus) listView.getAdapter().getItem(position);
+                Intent ListMenuDetailIntent = new Intent(AllListMenuActivity.this,
+                        ListMenuDetailsActivity.class);
+                ListMenuDetailIntent.putExtra("listeMenus", listeMenus);
+                AllListMenuActivity.this.startActivity(ListMenuDetailIntent);
             }
         });
 

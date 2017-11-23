@@ -78,7 +78,7 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
                     ArrayList<Repas> repas = new ArrayList<Repas>();
                     int nbRepas = seekBar.getProgress()+1;
                     for(int i=0; i < nbRepas; i++){
-                        repas.add(new Repas("Repas",0,i+1));
+                        repas.add(new Repas("Repas n°"+(i+1),0,i+1));
                     }
                     menu.setRepas(repas);
                 }

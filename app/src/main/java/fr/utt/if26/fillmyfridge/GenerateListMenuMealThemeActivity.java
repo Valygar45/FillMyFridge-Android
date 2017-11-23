@@ -14,6 +14,7 @@ import java.util.Random;
 
 import fr.utt.if26.fillmyfridge.Adapters.PersonNumberAdapter;
 import fr.utt.if26.fillmyfridge.Adapters.ThemeAdapter;
+import fr.utt.if26.fillmyfridge.Dao.ListeMenusDAO;
 import fr.utt.if26.fillmyfridge.Dao.PlatDAO;
 import fr.utt.if26.fillmyfridge.Objects.ListeMenus;
 import fr.utt.if26.fillmyfridge.Objects.Menu;
@@ -59,6 +60,10 @@ public class GenerateListMenuMealThemeActivity extends AppCompatActivity impleme
             lvListeMenu.setAdapter(themeAdapter);
         }
         else{
+            ListeMenusDAO listeMenusDAO = new ListeMenusDAO(this);
+            listeMenusDAO.open();
+            listeMenusDAO.createListeMenus(listeMenus);
+            listeMenusDAO.close();
             Intent themeIntent = new Intent(GenerateListMenuMealThemeActivity.this, GenerateListMenuEnding.class);
             themeIntent.putExtra("listeMenus", listeMenus);
             GenerateListMenuMealThemeActivity.this.startActivity(themeIntent);

@@ -53,7 +53,7 @@ public class MenuDAO {
 
         Cursor cursor = database.rawQuery("SELECT m.id, m.nom, m.date from Menu as m, ListeMenus_Menu as lm WHERE lm.listemenus = "+this.listMenuID+" AND m.id = lm.menu", null);
         while(cursor.moveToNext()) {
-            Menu menu = new Menu(cursor.getString(1), new Date(cursor.getInt(2)));
+            Menu menu = new Menu(cursor.getString(1), new Date(cursor.getLong(2)));
             int menuId = cursor.getInt(0);
             menu.setId(menuId);
 

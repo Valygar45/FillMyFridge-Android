@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listListeMenusButton = (Button) findViewById(R.id.home_menu_list);
         listListeMenusButton.setOnClickListener(this);
 
-        SQLiteDatabase db = new MySQLiteHelper(this).getWritableDatabase();
+        /*SQLiteDatabase db = new MySQLiteHelper(this).getWritableDatabase();
         Log.v("lol","lol");
 
         Ingredient ingredient = new Ingredient(1, "pate", 200);
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Log.v("listemenus",listeRecup.toString());
         listeMenusDAO.close();
 
-        
+        */
 
 
 

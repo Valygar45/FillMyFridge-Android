@@ -7,7 +7,7 @@
     tools:context="fr.utt.if26.fillmyfridge.ListMenuDetailsActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
@@ -34,8 +34,9 @@
                 android:id="@+id/TV_lm_details_to"/>
         </LinearLayout>
         <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/LV_listemenus_details">
             <!-- feed with each day menu content - date + chaque repas (intitulé) + bouton pour voir le repas -->
         </ListView>
     </LinearLayout>
