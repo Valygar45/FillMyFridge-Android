@@ -1,9 +1,16 @@
 package fr.utt.if26.fillmyfridge.Objects;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import fr.utt.if26.fillmyfridge.Dao.ListeMenusDAO;
 
@@ -86,5 +93,40 @@ public class ListeMenus implements Serializable{
         String fourDigitsDateDebut = new SimpleDateFormat("dd/MM/YY").format(this.getDateDebut());
         String fourDigitsDateFin = new SimpleDateFormat("dd/MM/YY").format(this.getDateFin());
         return " du " + fourDigitsDateDebut+" au "+fourDigitsDateFin;
+    }
+
+    public ArrayList<ItemListeDeCourse> getIngredients(){
+        ArrayList<ItemListeDeCourse> listeDeCourses = new ArrayList<ItemListeDeCourse>();
+        for(Menu m : this.getMenus()){
+            for(Repas r : m.getRepas()){
+                for(Plat p : r.getPlats()){
+                    for(Ingredient i : p.getIngredients()){
+                        ItemListeDeCourse ildc = new ItemListeDeCourse(i, r.getNumberofPersonnes());
+                        int pos = this.isInAL(listeDeCourses, ildc);
+                        if(pos >= 0){
+                            listeDeCourses.get(pos).setNbFois(listeDeCourses.get(pos).getNbFois() + ildc.getNbFois());
+                        }else{
+                            listeDeCourses.add(ildc);
+                        }
+                    }
+                }
+            }
+        }
+
+        return listeDeCourses;
+    }
+
+    public int isInAL(ArrayList<ItemListeDeCourse> alToCheck, ItemListeDeCourse ildc){
+        Iterator<ItemListeDeCourse> it = alToCheck.iterator();
+        int posFound = 0;
+        while(it.hasNext()){
+            ItemListeDeCourse ildcTemp = it.next();
+            if(ildc.getIngredient().equals(ildcTemp.getIngredient())){
+                Log.e("EQUAL", ildc.toString() + " -- " + ildcTemp.toString());
+                return posFound;
+            }
+            posFound++;
+        }
+        return -1;
     }
 }
