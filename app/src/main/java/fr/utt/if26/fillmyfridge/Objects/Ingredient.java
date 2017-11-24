@@ -1,5 +1,7 @@
 package fr.utt.if26.fillmyfridge.Objects;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 /**
@@ -52,7 +54,9 @@ public class Ingredient implements Serializable {
 
     @Override
     public boolean equals(Object i){
-        if((this.getGrammes() == ((Ingredient)i).getGrammes()) && (this.getNom() == ((Ingredient)i).getNom())){
+        //Log.e("LISTMENUEquals", this.getNom());
+        //Log.e("LISTMENUEquals", ((Ingredient)i).getNom());
+        if(this.getNom().equals(((Ingredient)i).getNom())){
             return true;
         }else{
             return false;

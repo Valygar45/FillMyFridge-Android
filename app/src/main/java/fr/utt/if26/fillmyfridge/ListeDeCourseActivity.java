@@ -32,9 +32,8 @@ public class ListeDeCourseActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         listeMenus = (ListeMenus) intent.getSerializableExtra("listeMenus");
-
         lvIngredients = (ListView) findViewById(R.id.LV_liste_de_course);
-        /*Ingredient ingredient = new Ingredient(1, "pate", 200);
+        Ingredient ingredient = new Ingredient(1, "pate", 200);
         Ingredient ingredient2 = new Ingredient(1, "tomate", 100);
         Ingredient ingredient3 = new Ingredient(1, "jambon", 20);
         Ingredient ingredient4 = new Ingredient(1, "poulet", 2);
@@ -69,10 +68,11 @@ public class ListeDeCourseActivity extends AppCompatActivity {
         Menu menu2 = new Menu("Mardi", new Date(), arrayRepas);
         ArrayList<Menu> arrayMenu = new ArrayList<Menu>();
         arrayMenu.add(menu);
-        //arrayMenu.add(menu2);
+        arrayMenu.add(menu2);
 
-        ListeMenus listeMenus = new ListeMenus(new Date(), new Date(), arrayMenu);
-        Log.e("listeMenusTest", listeMenus.toString());*/
+        ListeMenus listeMenus2 = new ListeMenus(new Date(), new Date(), arrayMenu);
+        Log.e("LISTMENU", listeMenus.getIngredients().toString());
+        Log.e("LISTMENU2", listeMenus2.getIngredients().toString());
         ListeDeCourseAdapter ldcAdapter= new ListeDeCourseAdapter(listeMenus,getApplicationContext());
 
         lvIngredients.setAdapter(ldcAdapter);

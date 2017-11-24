@@ -438,6 +438,48 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,8,-1);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,9,-1);");
 
+        //SALADE AVOCAT CITRON VERT
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (10,48,90);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (10,60,40);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (10,61,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (10,23,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (10,62,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (10,8,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (10,9,-1);");
+
+        //SALADE DE COMCOMBRE AU CHEVRE ET OLIVE
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (11,63,150);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (11,64,35);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (11,65,70);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (11,23,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (11,62,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (11,35,-1);");
+
+        //SALADE DE POMME DE TERRE EPICEE
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,66,130);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,23,7.5);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,59,60);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,51,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,67,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,68,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,20,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,8,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (12,9,-1);");
+
+        //HACHIS PARMENTIER
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,31,100);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,69,75);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,24,65);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,28,40);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,27,60);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,4,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,71,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,46,8);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,15,8);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,7,13);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,8,-1);");
+        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (13,9,-1);");
+
         
     }
 }
