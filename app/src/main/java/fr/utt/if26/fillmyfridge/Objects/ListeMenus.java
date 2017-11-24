@@ -90,8 +90,8 @@ public class ListeMenus implements Serializable{
     }
 
     public String getDateFourDigits(){
-        String fourDigitsDateDebut = new SimpleDateFormat("dd/MM/YY").format(this.getDateDebut());
-        String fourDigitsDateFin = new SimpleDateFormat("dd/MM/YY").format(this.getDateFin());
+        String fourDigitsDateDebut = new SimpleDateFormat("dd/MM/yy").format(this.getDateDebut());
+        String fourDigitsDateFin = new SimpleDateFormat("dd/MM/yy").format(this.getDateFin());
         return " du " + fourDigitsDateDebut+" au "+fourDigitsDateFin;
     }
 

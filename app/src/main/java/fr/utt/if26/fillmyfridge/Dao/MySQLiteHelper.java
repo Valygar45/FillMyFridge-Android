@@ -113,22 +113,28 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         try {
             database.execSQL(DATABASE_CREATE_UTILISATEUR);
             database.execSQL(DATABASE_CREATE_TAG);
-            initTags(database);
+
             database.execSQL(DATABASE_CREATE_REPAS);
             database.execSQL(DATABASE_CREATE_PLAT);
-            initPlat(database);
+
             database.execSQL(DATABASE_CREATE_MENU);
             database.execSQL(DATABASE_CREATE_LISTEMENUS);
             database.execSQL(DATABASE_CREATE_INGREDIENT);
-            initIngredients(database);
+
             database.execSQL(DATABASE_CREATE_UTILISATEUR_LISTEMENUS);
             database.execSQL(DATABASE_CREATE_REPAS_PLAT);
             database.execSQL(DATABASE_CREATE_PLAT_TAG);
-            initPlatsTags(database);
+
             database.execSQL(DATABASE_PLAT_INGREDIENT);
-            initPlatsIngredients(database);
+
             database.execSQL(DATABASE_MENU_REPAS);
             database.execSQL(DATABASE_CREATE_LISTEMENUS_MENU);
+
+            initTags(database);
+            initPlat(database);
+            initIngredients(database);
+            initPlatsTags(database);
+            initPlatsIngredients(database);
 
             database.execSQL("INSERT INTO `Ingredient`(`Nom`,`ID`) VALUES ('Pate',NULL);");
             database.execSQL("INSERT INTO `Plat`(`ID`,`intitule`) VALUES (NULL,'Pizza');");
