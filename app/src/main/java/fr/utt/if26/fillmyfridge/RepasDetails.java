@@ -36,7 +36,14 @@ public class RepasDetails extends AppCompatActivity {
 
         for(Ingredient ingredient : plat.getIngredients()){
             TextView txIngredient = new TextView(this);
-            txIngredient.setText(ingredient.getNom()+", "+ingredient.getGrammes()*repas.getNumberofPersonnes()+" grammes");
+            String stringIngredient = ingredient.getNom()+", ";
+            if(ingredient.getGrammes()<0){
+                stringIngredient+= ingredient.getGrammes()*(-1)*repas.getNumberofPersonnes();
+            }
+            else{
+                stringIngredient += ingredient.getGrammes()*repas.getNumberofPersonnes()+" grammes";
+            }
+            txIngredient.setText(stringIngredient);
             llIngredient.addView(txIngredient);
         }
 

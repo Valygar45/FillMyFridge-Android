@@ -14,13 +14,14 @@
     <string name="gen_lm_ending_go_home">Retourner au menu principal</string>
     <string-array name="theme_spinner">
         <item>Gourmand</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Elaboré</item>
+        <item>Végétarien</item>
+        <item>Salades</item>
+        <item>Familial</item>
+        <item>Gratin</item>
+        <item>Healthy</item>
+        <item>Exotique</item>
+        <item>Variante</item>
     </string-array>
     <integer-array name="theme_spinner_id">
         <item>1</item>
@@ -31,5 +32,6 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
     </integer-array>
 </resources>
