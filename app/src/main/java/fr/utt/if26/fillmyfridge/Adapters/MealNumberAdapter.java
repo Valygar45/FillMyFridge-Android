@@ -27,6 +27,7 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
     private ListeMenus listeMenus;
     private Context mContext;
 
+
     // View lookup cache
     private static class ViewHolder {
         TextView dateLabel;
@@ -50,7 +51,7 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
        repasInit.add(new Repas("Repas",0,1));
        menu.setRepas(repasInit);
         // Check if an existing view is being reused, otherwise inflate the view
-        ViewHolder viewHolder; // view lookup cache stored in tag
+        final ViewHolder viewHolder; // view lookup cache stored in tag
 
         final View result;
 
@@ -61,11 +62,12 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
             convertView = inflater.inflate(R.layout.row_meal_number, parent, false);
             viewHolder.dateLabel = (TextView) convertView.findViewById(R.id.TV_meal_number_row_label);
             viewHolder.SBDate = (SeekBar) convertView.findViewById(R.id.SB_meal_number_row);
+            final TextView currentValue = (TextView) convertView.findViewById(R.id.TV_meal_number_current);
 
             viewHolder.SBDate.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+                    currentValue.setText(String.valueOf(seekBar.getProgress()+1));
                 }
 
                 @Override
@@ -81,6 +83,7 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
                         repas.add(new Repas("Repas n°"+(i+1),0,i+1));
                     }
                     menu.setRepas(repas);
+
                 }
             });
 

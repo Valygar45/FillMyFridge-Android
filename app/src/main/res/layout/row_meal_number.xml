@@ -6,13 +6,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/TV_meal_number_row_label"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="21dp"
             android:textColor="@color/primaryLightColor"
             android:textSize="15dp"
@@ -35,8 +36,22 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="21dp"
                 android:textColor="@color/primaryLightColor"
-                android:textSize="15dp">
-            </TextView>
+                android:textSize="15dp"
+                android:layout_alignLeft="@id/SB_meal_number_row"/>
+
+            <TextView
+                android:id="@+id/TV_meal_number_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/SB_meal_number_row"
+                android:gravity="center_horizontal"
+                android:layout_toRightOf="@id/TV_meal_number_min"
+                android:text="1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="21dp"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/TV_meal_number_max"
@@ -44,7 +59,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/SB_meal_number_row"
-                android:text="3"
+                android:layout_alignRight="@id/SB_meal_number_row"
+                android:text="5"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="21dp"
                 android:textColor="@color/primaryLightColor"

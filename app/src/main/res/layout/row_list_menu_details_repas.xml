@@ -12,10 +12,16 @@
         android:layout_marginTop="21dp"
         android:textColor="@color/primaryLightColor"
         android:textSize="15dp"
-        android:paddingLeft="20dp"/>
+        android:paddingLeft="20dp"
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voir"
-        android:id="@+id/B_Repas_ListeMenus_Detail"/>
+        android:id="@+id/B_Repas_ListeMenus_Detail"
+        android:layout_marginTop="59dp"
+        android:background="@color/primaryLightColor"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:textColor="@color/primaryTextColor"/>
 </android.support.constraint.ConstraintLayout>

@@ -36,6 +36,7 @@
     </integer-array>
     <string name="open_drawer">OPEN</string>
     <string name="close_drawer">CLOSE</string>
-    <string name="home">FillMyFridge - Home</string>
+    <string name="home">FillMyFridge</string>
+    <string name="apropos">Application réalisée par Alexandre PATELLI et Florian CULIÉ dans le cadre de l UE IF26</string>
 
 </resources>

@@ -65,7 +65,6 @@ public class DrawerMenuItem {
                 mContext.startActivity(listeMenusIntent);
                 break;
             case DRAWER_MENU_A_PROPOS:
-                Toast.makeText(mContext, "A PROPOS", Toast.LENGTH_SHORT).show();
                 if(mCallBack != null)mCallBack.onGroupsMenuSelected();
                 Intent aProposIntent = new Intent(mContext, AProposActivity.class);
                 aProposIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

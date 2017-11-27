@@ -40,7 +40,7 @@ public class AllListMenuActivity extends AppCompatActivity {
         ArrayList<ListeMenus> listeMenus = listeMenusDAO.getAllListeMenus();
 
         final ArrayAdapter<ListeMenus> adapter = new ArrayAdapter<ListeMenus>(this,
-                android.R.layout.simple_list_item_1, listeMenus);
+                R.layout.row_list_menu, listeMenus);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

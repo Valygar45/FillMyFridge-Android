@@ -3,6 +3,7 @@ package fr.utt.if26.fillmyfridge.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,10 +72,14 @@ public class ListeMenuDetailsAdapter extends ArrayAdapter<Menu> {
                 LinearLayout linearLayout = new LinearLayout(getContext());
                 linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
                 linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+                linearLayout.setPadding(30,8,8,30);
 
                 Button button = new Button(getContext());
                 button.setText("Voir");
-                button.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                button.setBackgroundColor(ContextCompat.getColor(mContext, R.color.primaryLightColor));
+                button.setPadding(8,0,8,0);
+                button.setTextColor(ContextCompat.getColor(mContext, R.color.primaryTextColor));
+                button.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 100));
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -87,6 +92,8 @@ public class ListeMenuDetailsAdapter extends ArrayAdapter<Menu> {
 
                 TextView txRepas = new TextView(getContext());
                 txRepas.setText(repas.getNom());
+                txRepas.setTextColor(ContextCompat.getColor(mContext, R.color.primaryLightColor));
+                txRepas.setPadding(30,8,50,8);
 
                 linearLayout.addView(txRepas);
                 linearLayout.addView(button);

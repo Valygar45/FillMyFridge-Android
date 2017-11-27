@@ -109,7 +109,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        Log.v("lol","lol");
         try {
             database.execSQL(DATABASE_CREATE_UTILISATEUR);
             database.execSQL(DATABASE_CREATE_TAG);
@@ -135,13 +134,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             initIngredients(database);
             initPlatsTags(database);
             initPlatsIngredients(database);
-
-            database.execSQL("INSERT INTO `Ingredient`(`Nom`,`ID`) VALUES ('Pate',NULL);");
-            database.execSQL("INSERT INTO `Plat`(`ID`,`intitule`) VALUES (NULL,'Pizza');");
-            database.execSQL("INSERT INTO `Tag`(`ID`,`Label`) VALUES (NULL,'Gourmand');");
-            database.execSQL("INSERT INTO `Plat_Tag`(`plat`,`tag`) VALUES (1,1);");
-            database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (1,1,200);");
-
         }
         catch (SQLException e){
             Log.v("SQLITE",e.getMessage().toString());

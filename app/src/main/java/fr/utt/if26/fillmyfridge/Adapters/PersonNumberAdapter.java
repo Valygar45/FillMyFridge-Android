@@ -55,10 +55,12 @@ public class PersonNumberAdapter extends ArrayAdapter<Repas> {
             convertView = inflater.inflate(R.layout.row_meal_number, parent, false);
             viewHolder.dateLabel = (TextView) convertView.findViewById(R.id.TV_meal_number_row_label);
             viewHolder.SBDate = (SeekBar) convertView.findViewById(R.id.SB_meal_number_row);
+            final TextView currentValue = (TextView) convertView.findViewById(R.id.TV_meal_number_current);
 
             viewHolder.SBDate.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    currentValue.setText(String.valueOf(seekBar.getProgress()+1));
 
                 }
 
