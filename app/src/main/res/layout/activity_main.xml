@@ -1,36 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.utt.if26.fillmyfridge.MainActivity">
-
-    <LinearLayout
+    tools:context="fr.utt.if26.fillmyfridge.MainActivity"
+    android:id="@+id/drawerLayout"
+    android:background="@color/primaryTextColor">
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_home"/>
+
         <TextView
+            android:id="@+id/text_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
             android:text="@string/home_hello"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/primaryLightColor"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
 
         <Button
-            android:layout_height="wrap_content"
+            android:id="@+id/home_gen_menu_list"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_home"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="59dp"
+            android:background="@color/primaryLightColor"
             android:text="@string/gen_menu_list"
-            android:id="@+id/home_gen_menu_list"/>
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:textColor="@color/primaryTextColor"/>
 
         <Button
-            android:layout_height="wrap_content"
+            android:id="@+id/home_menu_list"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/home_gen_menu_list"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="67dp"
+            android:background="@color/primaryLightColor"
             android:text="Voir mes listes de menu"
-            android:id="@+id/home_menu_list"/>
-    </LinearLayout>
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:textColor="@color/primaryTextColor"/>
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@android:color/white">
+        <com.mindorks.placeholderview.PlaceHolderView
+            android:id="@+id/drawerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+    </FrameLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.DrawerLayout>

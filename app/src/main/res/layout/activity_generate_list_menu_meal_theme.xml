@@ -1,29 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.utt.if26.fillmyfridge.GenerateListMenuMealThemeActivity">
+    tools:context="fr.utt.if26.fillmyfridge.GenerateListMenuMealThemeActivity"
+    android:id="@+id/drawerLayout">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/LL_gen_meal_theme"
         android:orientation="vertical">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_home"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:id="@+id/gen_menu_list_meal_theme_considered_date"/>
+            android:id="@+id/gen_menu_list_meal_theme_considered_date"
+            android:layout_below="@id/toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/primaryLightColor"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/preciser_theme"/>
+            android:text="@string/preciser_theme"
+            android:layout_below="@id/gen_menu_list_meal_theme_considered_date"
+            android:id="@+id/TV_theme_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/primaryLightColor"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"/>
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/LV_gen_meal_theme">
+            android:id="@+id/LV_gen_meal_theme"
+            android:layout_below="@id/TV_theme_title">
             <!-- LV qui sera feed avec les repas de la journée considérée et une combobox des thèmes à choisir-->
 
 
@@ -32,6 +60,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/continuer"
-            android:id="@+id/gen_menu_list_meal_theme_continue"/>
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+            android:id="@+id/gen_menu_list_meal_theme_continue"
+            android:layout_below="@id/LV_gen_meal_theme"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="59dp"
+            android:background="@color/primaryLightColor"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:textColor="@color/primaryTextColor"/>
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@android:color/white">
+        <com.mindorks.placeholderview.PlaceHolderView
+            android:id="@+id/drawerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+    </FrameLayout>
+</android.support.v4.widget.DrawerLayout>

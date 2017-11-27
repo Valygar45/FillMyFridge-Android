@@ -11,7 +11,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/TV_meal_number_row_label"/>
+            android:id="@+id/TV_meal_number_row_label"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            android:textColor="@color/primaryLightColor"
+            android:textSize="15dp"
+            android:paddingLeft="20dp"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +31,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/SB_meal_number_row"
-                android:text="1">
+                android:text="1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="21dp"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="15dp">
             </TextView>
 
             <TextView
@@ -35,7 +44,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/SB_meal_number_row"
-                android:text="3" />
+                android:text="3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="21dp"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="15dp" />
         </RelativeLayout>
 
     </LinearLayout>

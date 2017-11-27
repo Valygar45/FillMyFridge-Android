@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.utt.if26.fillmyfridge.ListeDeCourseActivity">
+    tools:context="fr.utt.if26.fillmyfridge.ListeDeCourseActivity"
+    android:id="@+id/drawerLayout">
 
-    <ListView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/LV_liste_de_course">
-        <!-- LV feed avec chaque élément de la liste de course sous le format nbFois - nom de l'ingrédient -->
-    </ListView>
+        android:orientation="vertical">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_home"/>
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/LV_liste_de_course">
+            <!-- LV feed avec chaque élément de la liste de course sous le format nbFois - nom de l'ingrédient -->
+        </ListView>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@android:color/white">
+        <com.mindorks.placeholderview.PlaceHolderView
+            android:id="@+id/drawerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+    </FrameLayout>
 
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.DrawerLayout>

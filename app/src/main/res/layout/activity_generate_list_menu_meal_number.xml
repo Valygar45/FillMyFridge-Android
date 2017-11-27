@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.utt.if26.fillmyfridge.GenerateListMenuMealNumberActivity">
+    tools:context="fr.utt.if26.fillmyfridge.GenerateListMenuMealNumberActivity"
+    android:id="@+id/drawerLayout">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/LL_gen_meal_number"
         android:orientation="vertical">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_home"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/gen_lm_meal_number"
-            />
+            android:layout_below="@id/toolbar"
+            android:id="@+id/TV_meal_number_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/primaryLightColor"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"/>
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/LV_gen_meal_number">
+            android:id="@+id/LV_gen_meal_number"
+            android:layout_below="@id/TV_meal_number_title">
             <!-- LV qui sera feed avec les jours donnés précédemments et un select sur le nombre de repas -->
         </ListView>
 
@@ -28,9 +44,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/continuer"
-            android:id="@+id/gen_menu_list_meal_number_continue"/>
-    </LinearLayout>
+            android:id="@+id/gen_menu_list_meal_number_continue"
+            android:layout_below="@id/LV_gen_meal_number"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="59dp"
+            android:background="@color/primaryLightColor"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:textColor="@color/primaryTextColor"/>
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@android:color/white">
+        <com.mindorks.placeholderview.PlaceHolderView
+            android:id="@+id/drawerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+    </FrameLayout>
 
 
 
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.DrawerLayout>

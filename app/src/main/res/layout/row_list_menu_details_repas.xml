@@ -7,7 +7,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/TV_Repas_ListeMenus_Detail"/>
+        android:id="@+id/TV_Repas_ListeMenus_Detail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:textColor="@color/primaryLightColor"
+        android:textSize="15dp"
+        android:paddingLeft="20dp"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -24,8 +24,8 @@
         <activity android:name=".ListeDeCourseActivity" />
         <activity android:name=".ListMenuDetailsActivity" />
         <activity android:name=".AllListMenuActivity" />
-        <activity android:name=".MealDetailActivity" />
-        <activity android:name=".RepasDetails"></activity>
+        <activity android:name=".RepasDetails" />
+        <activity android:name=".AProposActivity"></activity>
     </application>
 
 </manifest>

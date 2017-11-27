@@ -28,5 +28,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'net.danlew:android.joda:2.9.9.1'
     compile 'com.github.thomashaertel:MultiSpinner:f20df367fb'
+    compile 'com.mindorks:placeholderview:0.2.7'
     testCompile 'junit:junit:4.12'
+
 }
