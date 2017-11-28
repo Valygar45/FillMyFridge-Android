@@ -1,6 +1,7 @@
 package fr.utt.if26.fillmyfridge.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,15 +48,16 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
        final Menu menu = listeMenus.getMenus().get(position);
-       ArrayList<Repas> repasInit = new ArrayList<Repas>();
-       repasInit.add(new Repas("Repas",0,1));
-       menu.setRepas(repasInit);
+
         // Check if an existing view is being reused, otherwise inflate the view
         final ViewHolder viewHolder; // view lookup cache stored in tag
 
         final View result;
 
         if (convertView == null) {
+            ArrayList<Repas> repasInit = new ArrayList<Repas>();
+            repasInit.add(new Repas("Repas",0,1));
+            menu.setRepas(repasInit);
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -82,6 +84,7 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
                     for(int i=0; i < nbRepas; i++){
                         repas.add(new Repas("Repas n°"+(i+1),0,i+1));
                     }
+
                     menu.setRepas(repas);
 
                 }
@@ -89,6 +92,7 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
 
             result=convertView;
 
+            // Return the completed view to render on screen
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -96,7 +100,6 @@ public class MealNumberAdapter extends ArrayAdapter<Menu>{
         }
 
         viewHolder.dateLabel.setText("Le " + menu.getDateFourDigits() + ": ");
-        // Return the completed view to render on screen
         return convertView;
     }
 }
