@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GenerateListMenuDatesActivity" />
+        <activity android:name=".GenerateListMenuDatesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            />
         <activity android:name=".GenerateListMenuMealNumberActivity" />
         <activity android:name=".GenerateListMenuPersonPerMealActivity" />
         <activity android:name=".GenerateListMenuMealThemeActivity" />

@@ -1,20 +1,30 @@
 package fr.utt.if26.fillmyfridge;
 
+
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
 import com.mindorks.placeholderview.PlaceHolderView;
 
 import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -23,8 +33,8 @@ import fr.utt.if26.fillmyfridge.Objects.ListeMenus;
 public class GenerateListMenuDatesActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button continueButton;
-    private CalendarView dateDebutView;
-    private CalendarView dateFinView;
+    private EditText dateDebutView;
+    private EditText dateFinView;
     private Date dateDebut;
     private Date dateFin;
 
@@ -32,6 +42,7 @@ public class GenerateListMenuDatesActivity extends AppCompatActivity implements 
     private DrawerLayout mDrawer;
     private Toolbar mToolbar;
     private PlaceHolderView mGalleryView;
+    private int day, year, month;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,30 +53,60 @@ public class GenerateListMenuDatesActivity extends AppCompatActivity implements 
         continueButton.setOnClickListener(this);
 
 
+        dateDebutView = (EditText) findViewById(R.id.gen_menu_list_from);
+        dateFinView = (EditText) findViewById(R.id.gen_menu_list_to);
 
-        dateDebutView = (CalendarView) findViewById(R.id.gen_menu_list_from);
-        dateFinView = (CalendarView) findViewById(R.id.gen_menu_list_to);
-        dateDebut = new Date(dateDebutView.getDate());
-        dateFin = new Date(dateFinView.getDate());
+        dateDebutView.addTextChangedListener(new TextWatcher() {
+            public void beforeTextChanged(CharSequence cs, int i, int i1, int i2){
 
-        Log.e("dateTest", (new Date(dateDebutView.getDate())).toString());
+            }
 
-        dateDebutView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            public void onTextChanged(CharSequence cs, int i, int i1, int i2){
+
+            }
+
+            public void afterTextChanged(Editable s) {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+                try{
+                    dateDebut = sdf.parse(s.toString());
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        dateDebutView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
-                Calendar c = Calendar.getInstance();
-                c.set(i, i1, i2, 0, 0);
-                dateDebut = c.getTime();
-                //dateDebut = (new LocalDate(i, i1+1, i2)).toDate();
-                Log.e("dateTest", dateDebut.getTime()+"");
+            public void onClick(View v) {
+                showDialog(0);
             }
         });
 
-        dateFinView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
-                dateFin = (new LocalDate(i, i1+1, i2)).toDate();
 
+
+        dateFinView.addTextChangedListener(new TextWatcher() {
+            public void beforeTextChanged(CharSequence cs, int i, int i1, int i2){
+
+            }
+
+            public void onTextChanged(CharSequence cs, int i, int i1, int i2){
+
+            }
+
+            public void afterTextChanged(Editable s) {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+                try{
+                    dateFin = sdf.parse(s.toString());
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        dateFinView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(1);
             }
         });
 
@@ -76,6 +117,40 @@ public class GenerateListMenuDatesActivity extends AppCompatActivity implements 
         setupDrawer();
 
     }
+
+    @Override
+    @Deprecated
+    protected Dialog onCreateDialog(int id) {
+        LocalDateTime now = LocalDateTime.now();
+        if(id ==0){
+            return new DatePickerDialog(this, datePickerListenerDebut, now.getYear(), now.getMonthOfYear()-1, now.getDayOfMonth() );
+        }else{
+            return new DatePickerDialog(this, datePickerListenerFin, now.getYear(), now.getMonthOfYear()-1, now.getDayOfMonth() );
+        }
+    }
+
+    private DatePickerDialog.OnDateSetListener datePickerListenerDebut = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int selectedYear,
+                              int selectedMonth, int selectedDay) {
+            day = selectedDay;
+            month = selectedMonth;
+            year = selectedYear;
+            dateDebutView.setText(selectedDay + "/" + (selectedMonth + 1) + "/"
+                    + selectedYear);
+        }
+    };
+
+    private DatePickerDialog.OnDateSetListener datePickerListenerFin = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int selectedYear,
+                              int selectedMonth, int selectedDay) {
+            day = selectedDay;
+            month = selectedMonth;
+            year = selectedYear;
+            dateFinView.setText(selectedDay + "/" + (selectedMonth + 1) + "/"
+                    + selectedYear);
+        }
+    };
+
     private void setupDrawer(){
         mDrawerView
                 .addView(new DrawerMenuItem(this.getApplicationContext(), DrawerMenuItem.DRAWER_MENU_GENERER_MENUS))
