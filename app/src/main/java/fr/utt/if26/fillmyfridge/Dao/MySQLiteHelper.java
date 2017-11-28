@@ -421,7 +421,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,46,13);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,55,12);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,23,58);");
-        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,46,3);");
+        //database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,46,3);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,56,3);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,57,-1);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (9,58,-1);");
@@ -546,7 +546,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (21,71,30);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (21,24,50);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (21,3,55);");
-        database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (21,33,90);");
+        //database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (21,33,90);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (21,1,50);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (21,9,-1);");
         database.execSQL("INSERT INTO `Plat_Ingredient`(`plat`,`ingredient`,`grammes`) VALUES (21,8,-1);");
