@@ -123,9 +123,17 @@ public class GenerateListMenuDatesActivity extends AppCompatActivity implements 
     protected Dialog onCreateDialog(int id) {
         LocalDateTime now = LocalDateTime.now();
         if(id ==0){
-            return new DatePickerDialog(this, datePickerListenerDebut, now.getYear(), now.getMonthOfYear()-1, now.getDayOfMonth() );
+            DatePickerDialog dpd = new DatePickerDialog(this, datePickerListenerDebut, now.getYear(), now.getMonthOfYear()-1, now.getDayOfMonth() );
+            DatePicker dp = dpd.getDatePicker();
+            Calendar c = Calendar.getInstance();
+            dp.setMinDate(c.getTimeInMillis());
+            return dpd;
         }else{
-            return new DatePickerDialog(this, datePickerListenerFin, now.getYear(), now.getMonthOfYear()-1, now.getDayOfMonth() );
+            DatePickerDialog dpd = new DatePickerDialog(this, datePickerListenerFin, now.getYear(), now.getMonthOfYear()-1, now.getDayOfMonth() );
+            DatePicker dp = dpd.getDatePicker();
+            Calendar c = Calendar.getInstance();
+            dp.setMinDate(c.getTimeInMillis());
+            return dpd;
         }
     }
 
